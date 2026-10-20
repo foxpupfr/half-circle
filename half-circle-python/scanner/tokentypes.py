@@ -8,17 +8,23 @@ class tokentype(Enum):
     MINUS = "-"
     MULPLICATION = "*"
     DIVISION = "/"
+
     EQUAL_TO = "="
+    NOT = "!"
     GREATER_THAN = ">"
     LESS_THAN = "<"
+    NOT_EQUAL_TO = "!="
     GREATER_THAN_OR_EQUAL_TO = ">="
     LESS_THAN_OR_EQUAL_TO = "<="
+    
+    LEFT_BRACKET = "("
+    RIGHT_BRACKET = ")"
 
 # whitespace
     WHITESPACE = " "
 
 # variable
-    VARIABLE = Enum
+    VARIABLE = "var"
 
 # numbers
-    NUMBER = Enum
+    NUMBER = "num"
