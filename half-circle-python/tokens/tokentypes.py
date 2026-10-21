@@ -6,14 +6,15 @@ class tokentype(Enum):
 # basic operators
     PLUS = "+"
     MINUS = "-"
-    MULPLICATION = "*"
-    DIVISION = "/"
+    MULTIPLY = "*"
+    DIVIDE = "/"
+    EXPONATION = "^"
 
     EQUAL_TO = "="
     NOT = "!"
+    NOT_EQUAL_TO = "!="
     GREATER_THAN = ">"
     LESS_THAN = "<"
-    NOT_EQUAL_TO = "!="
     GREATER_THAN_OR_EQUAL_TO = ">="
     LESS_THAN_OR_EQUAL_TO = "<="
     

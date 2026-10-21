@@ -1,5 +1,6 @@
-from scanner.tokentypes import tokentype
-from scanner.tokens import token
+from tokens.tokentypes import tokentype
+from tokens.token import token
+from tokens.binding_values import check_binding_value
 
 #first pass for basic token splitting 
 def first_pass(expr_to_scan):
@@ -16,10 +17,10 @@ def first_pass(expr_to_scan):
                 token_list.append(("-",tokentype.MINUS))
 
             case "*":
-                token_list.append(("*",tokentype.MULPLICATION))
+                token_list.append(("*",tokentype.MULTIPLY))
 
             case "/":
-                token_list.append(("/",tokentype.DIVISION))
+                token_list.append(("/",tokentype.DIVIDE))
 
             case "=":
                 token_list.append(("=",tokentype.EQUAL_TO))
@@ -81,10 +82,10 @@ def second_pass(token_list):
 
             case [(val1, tokentype.VARIABLE), (val2, tokentype.NUMBER)]:
                 token_list[i], token_list[i + 1] = token_list[i + 1], token_list[i]
-                token_list.insert(i+1, ("*",tokentype.MULPLICATION))
+                token_list.insert(i+1, ("*",tokentype.MULTIPLY))
 
             case [(val1, tokentype.NUMBER), (val2, tokentype.VARIABLE)]:
-                token_list.insert(i+1, ("*",tokentype.MULPLICATION))
+                token_list.insert(i+1, ("*",tokentype.MULTIPLY))
 
             case [(val1, tokentype.GREATER_THAN),(val2, tokentype.EQUAL_TO)]:
                 token_list.insert(i + 1, (">=", tokentype.GREATER_THAN_OR_EQUAL_TO))
@@ -126,6 +127,7 @@ def third_pass(token_list):
 
     for i in range(len(token_list)):
         value, type_ = token_list[i]
-        final_token_list.append(token(value, type_)) # conversion into objects
+        binding_val = check_binding_value(type_)
+        final_token_list.append(token(value, type_, binding_val)) # conversion into objects
 
     return final_token_list
