@@ -18,6 +18,9 @@ This project is being build from pure intuition of how things should be withoput
 
 ### Small Demo
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b887ccee-d680-4492-bf60-23f6dc889ff0" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cab34f65-8785-45e0-aae2-4556a4832565" />
 
 ## Scanner
 
@@ -71,7 +74,8 @@ I also want to make it moduler so i can add calculus, trignometry and other thin
 
 ## Trying it out 
 
-- you can clone this github repo and enter the python version folder then run the main.py ```
+- you can clone this github repo and enter the python version folder then run the main.py
+```
 git clone https://github.com/foxpupfr/half-circle.git
 cd half-circle/half-circle-python
 python3 main.py
