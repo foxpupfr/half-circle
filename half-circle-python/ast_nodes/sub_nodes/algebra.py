@@ -1,14 +1,4 @@
-
-
-from collections.abc import ValuesView
-
-
-class expr:
-    def __init__(self,root):
-        self.root = root
-
-class algebra(expr):
-    pass
+from ast_nodes.main_nodes import algebra
 
 class add(algebra):
     def __init__(self, left, right):
