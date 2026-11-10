@@ -1,4 +1,4 @@
-import ast_nodes.sub_nodes.algebra as algebra
+import ast_nodes.sub_nodes.algebra.algebra as algebra
 
 
 
@@ -7,9 +7,9 @@ def tree_walk(ast):
     #so we have to look at base node first then recurive call tree walker ig 
     # aslo add varible and tuype to dict ig yeah thats it ig 
     match ast:
-        case algebra.variable():
+        case algebra.variable_node():
             variables[ast.value] = variables.get(ast.value, 0) + 1
-        case algebra.number():
+        case algebra.number_node():
             pass
         case _:
             left_node = tree_walk(ast.left)

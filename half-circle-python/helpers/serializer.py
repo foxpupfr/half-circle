@@ -1,13 +1,13 @@
-import ast_nodes.sub_nodes.algebra as algebra
+import ast_nodes.sub_nodes.algebra.algebra as algebra
 
 
 def serialize(ast):
     serialized_ast = ""
     match ast:
-        case algebra.number():
+        case algebra.number_node():
             serialized_ast += ast.value
             return serialized_ast
-        case algebra.variable():
+        case algebra.variable_node():
             serialized_ast += ast.value
             return serialized_ast
         case _:

@@ -1,4 +1,4 @@
-import ast_nodes.sub_nodes.algebra as algebra
+import ast_nodes.sub_nodes.algebra.algebra as algebra
 from tokens.tokentypes import tokentype
 from tokens.token import token
 from helpers.binding_values import binding_values
@@ -17,35 +17,35 @@ def parse_expr(node_or_expr):
                     pass
 
                 case token(value = val1,  type_ = tokentype.EQUAL_TO):
-                    parent_node = algebra.equal_to(
+                    parent_node = algebra.equal_to_node(
                             parse_expr(node_or_expr[:i:]),
                             parse_expr(node_or_expr[i + 1::])
                             )
                     return parent_node
 
                 case token(value = val,  type_ = tokentype.MINUS):
-                    parent_node = algebra.subtract(
+                    parent_node = algebra.subtract_node(
                             parse_expr(node_or_expr[:i:]),
                             parse_expr(node_or_expr[i + 1::])
                             )
                     return parent_node
 
                 case token(value = val,  type_ = tokentype.PLUS):
-                    parent_node = algebra.add(
+                    parent_node = algebra.add_node(
                             parse_expr(node_or_expr[:i:]),
                             parse_expr(node_or_expr[i + 1::])
                             )
                     return parent_node
 
                 case token(value = val,  type_ = tokentype.MULTIPLY):
-                    parent_node = algebra.multiply(
+                    parent_node = algebra.multiply_node(
                             parse_expr(node_or_expr[:i:]),
                             parse_expr(node_or_expr[i + 1::])
                             )
                     return parent_node
 
                 case token(value = val,  type_ = tokentype.DIVIDE):
-                    parent_node = algebra.divide(
+                    parent_node = algebra.divide_node(
                             parse_expr(node_or_expr[:i:]),
                             parse_expr(node_or_expr[i + 1::])
                             )
@@ -55,17 +55,17 @@ def parse_expr(node_or_expr):
                     pass
 
                 case token(value = val,  type_ = tokentype.LEFT_BRACKET) | token(value = val,  type_ = tokentype.RIGHT_BRACKET):
-                    parent_node = algebra.left_bracket(
+                    parent_node = algebra.left_bracket_node(
                             parse_expr(node_or_expr[:i:]),
                             parse_expr(node_or_expr[i + 1::])
                             )
                     return parent_node
 
                 case token(value = val,  type_ = tokentype.VARIABLE):
-                    return algebra.variable(node_or_expr[i].value)
+                    return algebra.variable_node(node_or_expr[i].value)
 
                 case token(value = val,  type_ = tokentype.NUMBER):
-                    return algebra.number(node_or_expr[i].value)
+                    return algebra.number_node(node_or_expr[i].value)
 
     
             i += 1
