@@ -12,7 +12,8 @@ def classify_and_solve(ast):
 
     if len(ast_info) == 0:
         import evaluater.solvers.normal_expression_solver as normal_expression_solver
-        normal_expression_solver.solve(ast)
+        solved_ast = normal_expression_solver.solve(ast)
+        return solved_ast
 
     else:
         print("Cannot solve the equation with current solvers")

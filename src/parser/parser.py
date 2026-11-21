@@ -11,7 +11,7 @@ from . import parsing_helpers as parsing_help
 
 def parse_expr(node_or_expr : list[token]):
 
-    print (node_or_expr)
+    print([x.value for x in node_or_expr])
 
     # Follows binding_values listed in ./../helpers/binding_values.py for parsing into AST
     for binding_value in binding_values.values():
@@ -26,12 +26,8 @@ def parse_expr(node_or_expr : list[token]):
                                             
                 case token(value = val,  type_ = tokentype.LEFT_BRACKET) if node_or_expr[i].binding_val != binding_value:
                     skip_index = parsing_help.manage_brackets(node_or_expr,i) # This helper take index and node_or_expr as parameter
-                    print(skip_index)
                     i += skip_index
-                    print(binding_value)
 
-
-                                
                 # The below 'case' checks if the binding value of the current token (operator) is less than the value specified for this pass of the loop if True it does not split the current node and continues.Please Check './../helpers/binding_values.py' for more reference on that.
 
                 case current_token if node_or_expr[i].binding_val < binding_value:
@@ -88,7 +84,7 @@ def parse_expr(node_or_expr : list[token]):
                 case token(value = val,  type_ = tokentype.LEFT_BRACKET):
                     skip_index = parsing_help.manage_brackets(node_or_expr,i)
                     parent_node = algebra.bracket_node(
-                            parse_expr(node_or_expr[i + 1 :skip_index:])
+                            parse_expr(node_or_expr[i+1 :skip_index:])
                             )
                     return parent_node
                 

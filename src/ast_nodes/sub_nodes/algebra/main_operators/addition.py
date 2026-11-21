@@ -16,14 +16,4 @@ class add_node(main_nodes.algebra):
     def __repr__(self):
         return f"add(left : {self.left},  right : {self.right})"
 
-    def evaluate_node(self, node):
-        match node:
- 
-            case add_node(left = l, right = r) if is_number_node(l) and is_number_node(r):
-                return node.left.value + node.right.value 
-            
-            # For adding terms like x + x into 2x
-
-            case _:
-                return node
 

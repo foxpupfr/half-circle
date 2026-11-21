@@ -16,9 +16,3 @@ class multiply_node(main_nodes.algebra):
     def __repr__(self):
         return f"multiply(left : {self.left},  right : {self.right})"
 
-    def evaluate_node(self, node):
-        match node:
-            case multiply_node(left = l, right = r):
-                return node.left.value * node.right.value
-            case _:
-                pass

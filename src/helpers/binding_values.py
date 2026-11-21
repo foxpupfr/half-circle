@@ -23,10 +23,10 @@ binding_values = {
 def check_binding_value(type_):
     match type_:
         case tokentype.VARIABLE:
-            return 0
+            return binding_values[type_]
 
         case tokentype.NUMBER:
-            return 0
+            return binding_values[type_]
 
         case tokentype.EQUAL_TO:
             return binding_values[type_]

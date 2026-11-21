@@ -13,7 +13,7 @@ def second_pass(token_list):
     # Slices the token list in pairs of two like [element_1, element_2]
     while i < len(token_list):
         match token_list[i : i + 2]:
-            
+
             # Catches token pairs like [x, 5] converts it into [5, *, x]  
             case [(val1, tokentype.VARIABLE), (val2, tokentype.NUMBER)]:
                 token_list[i], token_list[i + 1] = token_list[i + 1], token_list[i]
@@ -21,6 +21,14 @@ def second_pass(token_list):
             
             # Catches token pairs like [5, x] converts it into [5, *, x]
             case [(val1, tokentype.NUMBER), (val2, tokentype.VARIABLE)]:
+                token_list.insert(i+1, ("*",tokentype.MULTIPLY))
+            
+            # Catches token pairs like [x, (] or [5, (] converts it into [x, *, (] or [5, *, (]
+            case [(val1, tokentype.VARIABLE), (val2, tokentype.LEFT_BRACKET)] | [(val1, tokentype.NUMBER), (val2, tokentype.LEFT_BRACKET)]:
+                token_list.insert(i+1, ("*",tokentype.MULTIPLY))
+            
+            # Catches token pairs  like [), x] or [), 5] converts it into [), *, x] or [), *, 5]
+            case [(val1, tokentype.RIGHT_BRACKET), (val2, tokentype.VARIABLE)] | [(val1, tokentype.RIGHT_BRACKET), (val2, tokentype.NUMBER)]:
                 token_list.insert(i+1, ("*",tokentype.MULTIPLY))
             
             # Catches token pairs like [>, =] converts it into [>=,]

@@ -26,7 +26,6 @@ def manage_brackets(node_or_expr, i):
                 right_bracket_count += 1
 
         if left_bracket_count == right_bracket_count:
-            skip_index += 1
             break
         
         i += 1
