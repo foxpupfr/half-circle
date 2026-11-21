@@ -1,14 +1,14 @@
 # half-circle
 
-A custom Computer Algebra System (CAS) written from scratch in Python Which aims to solve high school and collage level mathematics problems.
+A custom Computer Algebra System (CAS) written from scratch in Python Which aims to solve high school and college level mathematics problems.
 
-The orginal goal is to learn maths by building this CAS and also making a tool which can explain maths while solving without missing any details so others can learn
+The orginal goal is to learn maths by building this CAS and also making a tool which can explain maths while solving without missing any details so others can learn.Hence in this state it outputs everything it handles data including all nodes
 
-This project is being build from pure intuition of how things should be withoput using no external help
+This project is being build from pure intuition of how things should be from first principles
 
 ## Table of Contents
 - [About The Project](#half-circle)
-- [Small Demo](#small-demo)
+- [Screenshots](#screenshots)
 - [Scanner](#scanner)
 - [Parser](#parser)
 - [Serializer](#serializer)
@@ -16,11 +16,9 @@ This project is being build from pure intuition of how things should be withoput
 - [Trying It Out](#trying-it-out)
 - [Known bugs](#known-bugs)
 
-### Small Demo
+### Screenshots
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b887ccee-d680-4492-bf60-23f6dc889ff0" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cab34f65-8785-45e0-aae2-4556a4832565" />
 
 ## Scanner
 
@@ -47,9 +45,7 @@ Please enter the expression to evaluate :  x + -5 = 10
 
 ## Parser
 
-- The parser has been completed as of now.
-- I have used concepts from pratt parsing which i didn't realise while building and were implicitly added
-  
+- This parser uses concepts from pratt parsing which I didn't realise while building and were implicitly added
 - The parser does only one pass
 - **Eg** :
 ``` 
@@ -60,7 +56,7 @@ THE  ENGINE IS CONVERTING THE PROBLEM INTO AN AST...
 
 ## Serializer 
 
-- I have also build a serliizer which can remake ast into human readable string 
+- A serializer which can remake ast into human readable string 
 - **Eg** : 
 ```
 x - 5 = 10
@@ -68,20 +64,25 @@ x - 5 = 10
 
 ## Solver 
 
-Solver is work under progress because i need to figure more things 
+- As of now the solver can solve numeric expressions like '2 * (2 + 3) + 3 * (4 - 1)'
+- It is still not able to solve Algebra as of now 
 
-I also want to make it moduler so i can add calculus, trignometry and other things later
 
 ## Trying it out 
 
-- you can clone this github repo and enter the python version folder then run the main.py
+- You can download from the [releases](https://github.com/foxpupfr/half-circle/releases) page.
+- Make sure to make it exectable if on linux with `chmod +x half-circle`
+
+-               OR
+
+- You can clone this github repo and enter the python version folder then run the main.py
+
 ```
 git clone https://github.com/foxpupfr/half-circle.git
-cd half-circle/half-circle-python
+cd half-circle/src
 python3 main.py
 ```
 
 ## known bugs
 
-- it may have issue with paranthesis and uniary plus or minus 
-- i aim to fix this bug one i can solve basic liner equations
+- It has issues with unary plus or minus 
