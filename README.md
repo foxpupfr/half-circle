@@ -18,7 +18,9 @@ This project is being build from pure intuition of how things should be from fir
 
 ### Screenshots
 
+<img width="1972" height="1104" alt="image" src="https://github.com/user-attachments/assets/af0d8c10-3e2f-4144-92a5-4a8c464f5cbc" />
 
+<img width="1972" height="1104" alt="image" src="https://github.com/user-attachments/assets/d4dc6823-21c9-49a0-9beb-6dedd7953d1d" />
 
 ## Scanner
 
@@ -71,7 +73,8 @@ x - 5 = 10
 ## Trying it out 
 
 - You can download from the [releases](https://github.com/foxpupfr/half-circle/releases) page.
-- Make sure to make it exectable if on linux with `chmod +x half-circle`
+- Make sure to make it executable if on Linux with `chmod +x half-circle` then `./half-circle-linux`
+- On windows it may display weird characters cause it as primarily made for Linux windows support will be improved also make sure to run it in powershell with `./half-cricle-windows.exe`
 
 -               OR
 
